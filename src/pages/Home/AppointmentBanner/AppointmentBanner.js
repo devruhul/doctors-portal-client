@@ -36,11 +36,11 @@ const AppointmentBanner = () => {
                         <Typography sx={{ color: 'white', fontSize: '15px', my: 4 }} variant="h6" gutterBottom>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, pariatur perferendis doloremque omnis reprehenderit doloribus quas eos quasi. Quasi magni nobis vitae quibusdam illum nostrum?
                         </Typography>
-                        <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb:4 }} variant="contained">Learn More</Button>
+                        <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '5px' }} variant="contained">Learn More</Button>
                     </Box>
                 </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 };
 

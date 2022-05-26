@@ -31,8 +31,8 @@ const Services = () => {
     return (
         <Box>
             <Container>
-                <Typography sx={{ color: '#5CE7ED', mt: 3 }} gutterBottom variant="h6" component="div"> OUR SERVICES</Typography>
-                <Typography sx={{ fontWeight: 'bold' }} gutterBottom variant="h4" component="div">  Services We Provide</Typography>
+                <Typography sx={{ color: '#5CE7ED', my: 3, letterSpacing: '10px', fontWeight: 'bold', }} gutterBottom variant="h6" component="div"> OUR SERVICES</Typography>
+                <Typography sx={{ fontWeight: 'bold', mb: 5 }} gutterBottom variant="h4" component="div">  Services We Provide</Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
                         services.map(service => <Service
