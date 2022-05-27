@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Button, TextField, Typography } from '@mui/material';
 
+// modal style
 const style = {
     position: 'absolute',
     top: '50%',
@@ -17,9 +18,11 @@ const style = {
 };
 
 const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) => {
-    const { name, time } = booking
+    const { name, time } = booking // destructure the booking object and get booking info
 
+    // Handle the booking form submit
     const handleBookingForm = e => {
+        // Stop reloading the page
         e.preventDefault();
         alert(`Booking ${name} on ${date.toDateString()} at ${time}`);
         handleBookingModalClose();
@@ -27,6 +30,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
 
     return (
         <Box>
+            {/* Here is the booking modal */}
             <Modal
                 open={bookingModal}
                 onClose={handleBookingModalClose}
@@ -35,6 +39,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
             >
                 <Box sx={style}>
                     <Typography variant="h6" gutterBottom sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
+                    {/* Booking modal form */}
                     <form onSubmit={handleBookingForm}>
                         <TextField
                             disabled
@@ -68,9 +73,6 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             placeholder="Your Phone"
                             size="small"
                             type="number"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
                         />
                         <TextField
                             disabled
@@ -80,9 +82,8 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             defaultValue={date.toDateString()}
                             size="small"
                         />
-                        <Button type="submit" variant="contained" color="primary"> Submit Appointment</Button>
+                        <Button type="submit" variant="contained" color="primary">Submit Appointment</Button>
                     </form>
-
                 </Box>
             </Modal>
         </Box>

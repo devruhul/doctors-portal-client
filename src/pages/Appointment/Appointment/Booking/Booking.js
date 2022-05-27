@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import BookingForm from '../BookingForm/BookingForm';
 
 const Booking = ({ booking, date }) => {
+    // State lift for share the date between components
     const { name, time, space } = booking;
     const [bookingModal, setBookingModal] = useState(false);
     const handleBookingModalOpen = () => setBookingModal(true);
@@ -21,6 +22,7 @@ const Booking = ({ booking, date }) => {
                 </Paper>
             </Grid>
             <BookingForm
+                // Send props to the BookingForm component
                 date={date}
                 booking={booking}
                 bookingModal={bookingModal}

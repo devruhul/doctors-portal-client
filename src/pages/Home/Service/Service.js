@@ -7,13 +7,14 @@ import Typography from '@mui/material/Typography';
 
 const Service = ({ name, description, img }) => {
     return (
+        // Here is the single service component
         <Grid item xs={2} sm={4} md={4}>
             <Card sx={{ maxWidth: 345, boxShadow: 0, border: 0 }}>
                 <CardMedia
                     sx={{ width: 'auto', textAlign: 'center', margin: 'auto', height: '80px' }}
                     component="img"
                     image={img}
-                    alt="green iguana"
+                    alt={name}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

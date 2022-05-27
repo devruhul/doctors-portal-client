@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Container, Typography } from '@mui/material';
 import Booking from '../Appointment/Booking/Booking';
 
-
+// Fake data for bookings
 const bookings = [
     {
         id: 1,
@@ -44,9 +44,11 @@ const bookings = [
 
 const AppointsDate = ({ date }) => {
     return (
+        // Here is the AppointsDate section
         <Container>
             <Typography variant="h4" gutterBottom sx={{ color: 'info.main', mb: 2 }}>Available Appoinments On {date.toDateString()}</Typography>
             <Grid container spacing={2}>
+                {/* Map bookings to create paper and share the information */}
                 {
                     bookings.map(booking => <Booking
                         key={booking.id}

@@ -5,8 +5,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 const AppointsCalendar = ({ date, setDate }) => {
-
     return (
+        // Here is the apppointment calendar where user can select the date and it shows the available time slots
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <StaticDatePicker
                 displayStaticWrapperAs="desktop"

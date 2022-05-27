@@ -8,13 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
-
 const Header = () => {
-
     return (
+        // Here is the navigation bar which is fixed at the top of the page and share the same style between all components
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
+                    {/* Humburger icon */}
                     <IconButton
                         size="large"
                         edge="start"
@@ -31,8 +31,6 @@ const Header = () => {
                             </Typography>
                         </Link>
                     </Box>
-
-
                     <Link to="/appointment">
                         <Button style={{ color: 'white' }}>Appointment
                         </Button>

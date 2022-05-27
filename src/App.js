@@ -7,12 +7,16 @@ import NotFound from './pages/Home/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
+      {/* All routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="appointment" element={<Appointment />} />
-        {/* <Route path="about" element={<About />} />
+        {/* 
+        <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="doctors" element={<Doctors />} /> */}
+        <Route path="doctors" element={<Doctors />} />
+        <Route path="contact" element={<Login />} />
+        */}
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
