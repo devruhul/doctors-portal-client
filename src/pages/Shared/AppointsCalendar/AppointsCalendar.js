@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
-import isWeekend from 'date-fns/isWeekend';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
-const AppointsCalendar = () => {
-    const [value, setValue] = useState(new Date());
+const AppointsCalendar = ({ date, setDate }) => {
+
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <>
-            </>
-                orientation="landscape"
-                value={value}
-                shouldDisableDate={isWeekend}
+            <StaticDatePicker
+                displayStaticWrapperAs="desktop"
+                value={date}
                 onChange={(newValue) => {
-                    setValue(newValue);
+                    setDate(newValue);
                 }}
-                renderInput={(params) => <TextField {...params} />
-            
+                renderInput={(params) => <TextField {...params} />}
+            />
         </LocalizationProvider>
     );
 };
