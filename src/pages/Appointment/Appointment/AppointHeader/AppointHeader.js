@@ -7,7 +7,7 @@ const AppointHeader = ({ date, setDate }) => {
     return (
         // Here is the appointment header with banner
         <Container sx={{ mt: 14 }}>
-            <Grid container spacing={24}>
+            <Grid container spacing={10}>
                 <Grid item xs={12} md={6}>
                     <AppointsCalendar date={date} setDate={setDate} />
                 </Grid>

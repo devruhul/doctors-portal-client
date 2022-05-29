@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import Header from '../../Shared/Header/Header';
 import AppointsDate from '../AppointsDate/AppointsDate';
 import AppointHeader from './AppointHeader/AppointHeader';
 
@@ -10,7 +9,6 @@ const Appointment = () => {
     return (
         <div>
             {/* Appointment components */}
-            <Header />
             <AppointHeader date={date} setDate={setDate} />
             <AppointsDate date={date} />
         </div>

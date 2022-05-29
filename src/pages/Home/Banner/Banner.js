@@ -38,7 +38,7 @@ const Banner = () => {
                         </Typography>
                         {/* Send to appointment route through Link component */}
                         <Link to="/appointment">
-                            <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '5px' }} variant="contained">Book An Appointment</Button>
+                            <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '5px' }} variant="contained">Get Appointment</Button>
                         </Link>
                     </Box>
                 </Grid>
