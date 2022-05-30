@@ -31,13 +31,13 @@ const reviews = [
 const Reviews = () => {
     return (
         // Testomonial page
-        <Container sx={{ mt: 15 }}>
+        <Container sx={{ mt: 10 }}>
             <Grid container spacing={24}>
-                <Grid item xs={12} md={6} sx={{ textAlign: 'left', mb: 5 }} >
+                <Grid container item xs={12} md={6} sx={{ textAlign: 'left',  }} >
                     <Typography variant="h4" gutterBottom sx={{ color: '#5CE7ED', }}>
                         Testimonials
                     </Typography>
-                    <Typography variant="h3" gutterBottom>
+                    <Typography variant="h4">
                         What's Our Patient's <br /> Says
                     </Typography>
                 </Grid>

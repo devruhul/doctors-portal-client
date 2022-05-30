@@ -13,7 +13,6 @@ const bannerbg = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroudrepeat: 'no-repeat',
-    marginTop: 2
 }
 
 // for centering the content
@@ -27,8 +26,8 @@ const Banner = () => {
     return (
         // Here is the banner
         <>
-            <Container style={bannerbg} sx={{ padding: '150px', flexGrow: 1 }}>
-                <Grid container spacing={2}>
+            <Container style={bannerbg} sx={{ flexGrow: 1, }}>
+                <Grid sx={{ pt: 14, pb: 34, mt: -7 }} container spacing={2}>
                     <Grid item sx={{ ...verticalCenter, textAlign: 'left' }} xs={12} md={7}>
                         <Box>
                             <Typography variant="h3">
