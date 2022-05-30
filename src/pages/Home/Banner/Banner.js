@@ -48,7 +48,6 @@ const Banner = () => {
                         <img style={{ width: '500px' }} src={bannerImg} alt="" />
                     </Grid>
                 </Grid>
-
             </Container>
             <ContactInfo />
         </>

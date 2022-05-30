@@ -5,7 +5,6 @@ import doctor from '../../../images/doctor.png';
 import appointment from '../../../images/appointment-bg.png';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 
 const appointmentBg = {
     backgroundImage: `url(${appointment})`,
@@ -16,6 +15,7 @@ const appointmentBg = {
 
 const AppointmentBanner = () => {
     return (
+        // Here is a appointment banner page
         <Box style={appointmentBg}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
@@ -36,9 +36,7 @@ const AppointmentBanner = () => {
                         <Typography sx={{ color: 'white', fontSize: '15px', my: 4 }} variant="h6" gutterBottom>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, pariatur perferendis doloremque omnis reprehenderit doloribus quas eos quasi. Quasi magni nobis vitae quibusdam illum nostrum?
                         </Typography>
-                        <Link to="/appointment">
-                            <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '2px' }} variant="contained">Get Appointment</Button>
-                        </Link>
+                        <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '2px' }} variant="contained">Learn More</Button>
                     </Box>
                 </Grid>
             </Grid>
