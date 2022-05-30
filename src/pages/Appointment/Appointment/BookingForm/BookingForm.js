@@ -82,7 +82,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             defaultValue={date.toDateString()}
                             size="small"
                         />
-                        <Button type="submit" variant="contained" color="primary">Submit Appointment</Button>
+                        <Button type="submit" variant="contained" color="primary">Send</Button>
                     </form>
                 </Box>
             </Modal>

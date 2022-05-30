@@ -11,7 +11,7 @@ const Header = () => {
     return (
         // Here is the navigation bar which is fixed at the top of the page and share the same style between all components
         <Box>
-            <AppBar position="fixed">
+            <AppBar position="static">
                 <Toolbar>
                     {/* Humburger icon */}
                     <IconButton
