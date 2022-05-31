@@ -13,7 +13,7 @@ const reviews = [
         "description": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, pariatur perferendis doloribus quas eos quasi. Quasi magni nobis vitae quibusdam illum nostrum? Lorem ipsum dolor sit amet adipisicing elit.",
         "image": firstImg
     },
-    {
+    {   
         "id": 2,
         "name": "Eveleen",
         "city": "Chicago, Illinois",
