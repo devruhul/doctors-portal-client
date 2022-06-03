@@ -7,7 +7,7 @@ const Feature = () => {
     return (
         // Here is a feature page
         <Container sx={{}}>
-            <Grid sx={{ mt: 5 }} container spacing={2}>
+            <Grid container sx={{ mt: 5 }}  spacing={2}>
                 <Grid item xs={12} md={6}>
                     <img
                         style={{ width: 400, marginTop: '110px' }}

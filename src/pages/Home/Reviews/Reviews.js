@@ -34,7 +34,7 @@ const Reviews = () => {
         <Container sx={{ mt: 10 }}>
             <Grid container spacing={4}>
                 <Grid container item xs={12} md={6} sx={{ textAlign: 'left', }} >
-                    <Grid direction="column" justifyContent="center" alignItems="center" >
+                    <Grid container direction="column" justifyContent="center" alignItems="center" >
                         <Grid item >
                             <Typography variant="h4" gutterBottom sx={{ color: '#5CE7ED', }}>
                                 Testimonials

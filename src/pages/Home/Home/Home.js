@@ -6,10 +6,11 @@ import Feature from '../Feature/Feature';
 import Reviews from '../Reviews/Reviews';
 import Blogs from '../Blogs/Blogs';
 import Doctors from '../Doctors/Doctors';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     return (
-        <div>
+        <>
             {/* All home component */}
             <Banner />
             <Services />
@@ -18,7 +19,8 @@ const Home = () => {
             <Reviews />
             <Blogs />
             <Doctors />
-        </div>
+            <Contact />
+        </>
     );
 };
 

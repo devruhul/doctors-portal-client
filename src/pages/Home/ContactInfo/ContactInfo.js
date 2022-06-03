@@ -4,7 +4,7 @@ import { Typography, CardContent, Card, Grid, Container } from '@mui/material';
 const ContactInfo = () => {
     return (
         <Container sx={{ mt: 5, mb: 10 }}>
-            <Grid sx={{ mt: -25 }} container justifyContent="space-evenly" alignItems="center">
+            <Grid container sx={{ mt: -25 }}  justifyContent="space-evenly" alignItems="center">
                 <Card sx={{ px: 7, py: 1, mb: 10, backgroundColor: 'rgb(69, 183, 203)', color: 'white' }}>
                     <Grid container justifyContent="center" alignItems="center">
                         <Grid item xs={12} md={4}>

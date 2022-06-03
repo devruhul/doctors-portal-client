@@ -2,10 +2,10 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import doctor from '../../../images/doctor.png';
-import appointment from '../../../images/appointment-bg.png';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import appointment from '../../../images/appointment-bg.png';
 
 const appointmentBg = {
     backgroundImage: `url(${appointment})`,
