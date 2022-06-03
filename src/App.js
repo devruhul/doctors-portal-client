@@ -9,6 +9,7 @@ import Login from './pages/Home/Login/Login';
 import NotFound from './pages/Home/NotFound/NotFound';
 import Reviews from './pages/Home/Reviews/Reviews';
 import Services from './pages/Home/Services/Services';
+import Footer from './pages/Shared/Footer/Footer';
 import Header from './pages/Shared/Header/Header';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 }
