@@ -21,13 +21,13 @@ const AppointmentBanner = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <img
-                        style={{ width: 400, marginTop: '-100px' }}
+                        style={{ width: '70%', height: '135%', marginTop: '-125px' }}
                         src={doctor}
                         alt=""
                     />
                 </Grid>
-                <Grid sx={{ display: 'flex', justifyContent: "flex-start", alignItems: 'center', textAlign: 'left' }} item xs={12} md={6}>
-                    <Box >
+                <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: "flex-start", alignItems: 'flex-start', textAlign: 'left', }} >
+                    <Box sx={{ py: 3, mx: 3 }}>
                         <Typography sx={{ color: '#5CE7ED', mb: 3 }} variant="h4" gutterBottom>
                             Appointment
                         </Typography>

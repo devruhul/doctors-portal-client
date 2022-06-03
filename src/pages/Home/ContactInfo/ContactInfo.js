@@ -10,7 +10,7 @@ const ContactInfo = () => {
                         <Grid item xs={12} md={4}>
                             <i style={{ marginTop: 5 }} className="fa-regular fa-clock fa-3x"></i>
                         </Grid>
-                        <Grid item xs={12} md={8} >
+                        <Grid item xs={12} md={8}>
                             <CardContent>
                                 <Typography gutterBottom variant="h6" sx={{ color: 'white' }}>
                                     Opening Hours
@@ -42,7 +42,7 @@ const ContactInfo = () => {
                 <Card sx={{ px: 7, py: 1, mb: 10, backgroundColor: 'rgb(69, 183, 203)', color: 'white' }}>
                     <Grid container justifyContent="center" alignItems="center">
                         <Grid item xs={12} md={4}>
-                            <i class="fa-solid fa-phone fa-3x"></i>
+                            <i className="fa-solid fa-phone fa-3x"></i>
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <CardContent>

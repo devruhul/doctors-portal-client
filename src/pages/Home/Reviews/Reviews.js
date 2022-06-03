@@ -13,7 +13,7 @@ const reviews = [
         "description": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, pariatur perferendis doloribus quas eos quasi. Quasi magni nobis vitae quibusdam illum nostrum? Lorem ipsum dolor sit amet adipisicing elit.",
         "image": firstImg
     },
-    {   
+    {
         "id": 2,
         "name": "Eveleen",
         "city": "Chicago, Illinois",
@@ -32,24 +32,33 @@ const Reviews = () => {
     return (
         // Testomonial page
         <Container sx={{ mt: 10 }}>
-            <Grid container spacing={24}>
-                <Grid container item xs={12} md={6} sx={{ textAlign: 'left',  }} >
-                    <Typography variant="h4" gutterBottom sx={{ color: '#5CE7ED', }}>
-                        Testimonials
-                    </Typography>
-                    <Typography variant="h4">
-                        What's Our Patient's <br /> Says
-                    </Typography>
+            <Grid container spacing={4}>
+                <Grid container item xs={12} md={6} sx={{ textAlign: 'left', }} >
+                    <Grid direction="column" justifyContent="center" alignItems="center" >
+                        <Grid item >
+                            <Typography variant="h4" gutterBottom sx={{ color: '#5CE7ED', }}>
+                                Testimonials
+                            </Typography>
+                        </Grid>
+
+                        <Grid item>
+                            <Typography variant="h4">
+                                What's Our Patient's <br /> Says
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} sx={{ textAlign: 'right', }}>
                     <i className="fa-solid fa-quote-left fa-10x" style={{ color: 'lightblue' }}></i>
                 </Grid>
             </Grid>
 
             <Grid container spacing={5}>
                 {reviews.map(review => (
-                    <Grid item xs={12} md={4} sm={6}>
-                        <Review {...review} />
+                    <Grid key={review.id} item xs={12} md={4} sm={6}>
+                        <Review
+                            {...review} />
                     </Grid>
                 ))}
             </Grid>
