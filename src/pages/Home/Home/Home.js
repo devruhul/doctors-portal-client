@@ -4,6 +4,7 @@ import AppointmentBanner from '../AppointmentBanner/AppointmentBanner';
 import Banner from '../Banner/Banner';
 import Feature from '../Feature/Feature';
 import Reviews from '../Reviews/Reviews';
+import Blogs from '../Blogs/Blogs';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Feature />
             <AppointmentBanner />
             <Reviews />
+            <Blogs />
         </div>
     );
 };
