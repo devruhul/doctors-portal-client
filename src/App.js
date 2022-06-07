@@ -5,11 +5,10 @@ import Feature from './pages/Home/Feature/Feature';
 import Blogs from './pages/Home/Blogs/Blogs';
 import Contact from './pages/Home/Contact/Contact';
 import Home from './pages/Home/Home/Home';
-import Login from './pages/Home/Login/Login';
+import Login from './pages/Login/Login';
 import NotFound from './pages/Home/NotFound/NotFound';
 import Reviews from './pages/Home/Reviews/Reviews';
 import Services from './pages/Home/Services/Services';
-import Footer from './pages/Shared/Footer/Footer';
 import Header from './pages/Shared/Header/Header';
 
 function App() {
@@ -28,8 +27,6 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-
-      <Footer />
     </div>
   );
 }
