@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Grid, Typography, TextField, Button } from '@mui/material';
+import { Container, Grid, Typography, TextField, Button, CircularProgress } from '@mui/material';
 import loginImg from '../../../images/login.png'
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -7,7 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 const Register = () => {
     const [loginData, setLoginData] = useState({})
 
-    const { createUser } = useAuth();
+    const { createUser, loading } = useAuth();
 
     const handleOnChange = e => {
         // store the value of email and password field
@@ -29,6 +29,7 @@ const Register = () => {
         // match password
         if (loginData.password !== loginData.matchPassword) {
             alert('Password do not match')
+            return
         }
         else {
             alert('Register Successfully')
@@ -44,7 +45,7 @@ const Register = () => {
                     <Typography sx={{ mt: 10 }} variant="h4" gutterBottom>
                         Register
                     </Typography>
-                    <form onSubmit={handleloginSubmit}>
+                    {!loading && <form onSubmit={handleloginSubmit}>
                         <TextField
                             required
                             sx={{ width: '1', mt: 3 }}
@@ -85,7 +86,9 @@ const Register = () => {
                                 Already have an account? Login
                             </Button>
                         </NavLink>
-                    </form>
+                    </form>}
+                    {loading && <CircularProgress color="success" />
+                    }
                 </Grid>
                 <Grid item xs={12} md={6} >
                     <img style={{ width: '100%' }} src={loginImg} alt="login" />

@@ -6,8 +6,12 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
+
+    const customer = useAuth();
+
     return (
         // Here is the navigation bar which is fixed at the top of the page and share the same style between all components
         <Box>
@@ -24,36 +28,43 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Link to="/">
+                        <Link style={{ textDecoration: 'none' }} to="/">
                             <Button variant="h6" style={{ color: 'white' }}>
                                 Home
                             </Button>
                         </Link>
                     </Box>
-                    <Link to="/services">
+                    <Link style={{ textDecoration: 'none' }} to="/services">
                         <Button style={{ color: 'white' }}>Services
                         </Button>
                     </Link>
-                    <Link to="/reviews">
+                    <Link style={{ textDecoration: 'none' }} to="/reviews">
                         <Button style={{ color: 'white' }}>Reviews
                         </Button>
                     </Link>
-                    <Link to="/blogs">
+                    <Link style={{ textDecoration: 'none' }} to="/blogs">
                         <Button style={{ color: 'white' }}>Blog
                         </Button>
                     </Link>
-                    <Link to="/contact">
+                    <Link style={{ textDecoration: 'none' }} to="/contact">
                         <Button style={{ color: 'white' }}>Contact
                         </Button>
                     </Link>
-                    <Link to="/appointment">
-                        <Button style={{ color: 'white' }}>Appointment
+                    <Link style={{ textDecoration: 'none' }} to="/appointment">
+                        <Button sx={{ color: 'white' }}>Appointment
                         </Button>
                     </Link>
-                    <Link to="/login">
-                        <Button style={{ color: 'white' }}>Login
-                        </Button>
-                    </Link>
+                    {
+                        customer?.email ?
+                            <Button sx={{ color: 'white' }}>Logout
+                            </Button>
+                            :
+
+                            <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                <Button sx={{ color: 'white' }}>Login
+                                </Button>
+                            </Link>
+                    }
                 </Toolbar>
             </AppBar>
         </Box>

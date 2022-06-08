@@ -38,7 +38,7 @@ const Banner = () => {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim distinctio voluptas nihil nam molestiae aliquid dolorum fuga obcaecati magnam? Dicta voluptatem expedita alias optio recusandae.
                             </Typography>
                             {/* Send to appointment route through Link component */}
-                            <Link to="/appointment">
+                             <Link style={{ textDecoration: 'none' }} to="/appointment">
                                 <Button sx={{ backgroundColor: '#5CE7ED', color: 'black', mb: 4, letterSpacing: '5px' }} variant="contained">Get Appointment</Button>
                             </Link>
                         </Box>
