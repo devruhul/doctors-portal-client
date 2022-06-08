@@ -30,10 +30,6 @@ const Header = () => {
                             </Button>
                         </Link>
                     </Box>
-                    <Link to="/feature">
-                        <Button style={{ color: 'white', }}>Feature
-                        </Button>
-                    </Link>
                     <Link to="/services">
                         <Button style={{ color: 'white' }}>Services
                         </Button>
