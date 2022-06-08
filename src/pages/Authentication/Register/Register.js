@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Container, Grid, Typography, TextField, Button } from '@mui/material';
 import loginImg from '../../../images/login.png'
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+
 const Register = () => {
     const [loginData, setLoginData] = useState({})
+
+    const { createUser } = useAuth();
 
     const handleOnChange = e => {
         // store the value of email and password field
@@ -15,18 +19,22 @@ const Register = () => {
             [emailText]: passValue
         })
 
-        console.log(loginData)
     }
 
     const handleloginSubmit = e => {
+
+        // create user with firebase
+        createUser(loginData.email, loginData.password)
+
         // match password
         if (loginData.password !== loginData.matchPassword) {
             alert('Password do not match')
         }
         else {
             alert('Register Successfully')
-            e.target.reset();
+            e.target.reset()
         }
+
         e.preventDefault();
     }
     return (
@@ -38,9 +46,9 @@ const Register = () => {
                     </Typography>
                     <form onSubmit={handleloginSubmit}>
                         <TextField
+                            required
                             sx={{ width: '1', mt: 3 }}
                             onChange={handleOnChange}
-                            required
                             variant="standard"
                             name="email"
                             label='Your Email'
@@ -50,9 +58,9 @@ const Register = () => {
                             }}
                         />
                         <TextField
+                            required
                             sx={{ width: '1', mt: 3 }}
                             onChange={handleOnChange}
-                            required
                             variant="standard"
                             name="password"
                             label="Password"
@@ -60,9 +68,9 @@ const Register = () => {
                             placeholder="Your Password"
                         />
                         <TextField
+                            required
                             sx={{ width: '1', mt: 3 }}
                             onChange={handleOnChange}
-                            required
                             variant="standard"
                             name="matchPassword"
                             label="Retype Password"
