@@ -27,17 +27,10 @@ const useFirebase = () => {
     }
 
     // sign in user
-    const portalUserSignin = (email, password) => {
+    const portalUserSignin = (email, password, location) => {
         setLoading(true);
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                setAuthError('');
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                setAuthError(errorMessage);
-            })
-            .finally(() => setLoading(false));
+        return signInWithEmailAndPassword(auth, email, password)
+           
     }
 
     // observe user
@@ -73,8 +66,10 @@ const useFirebase = () => {
         portalUser,
         createPortalUser,
         portalUserSignin,
+        setAuthError,
         authError,
         portalUserLogout,
+        setLoading,
         loading
     }
 }

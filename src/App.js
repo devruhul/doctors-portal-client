@@ -13,6 +13,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import Header from './pages/Shared/Header/Header';
 import Register from './pages/Authentication/Register/Register';
 import ContextProvider from './Context/ContextProvider/ContextProvider';
+import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -27,7 +28,13 @@ function App() {
           <Route path="reviews" element={<Reviews />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="appointment" element={<Appointment />} />
+          <Route
+            path="appointment"
+            element={
+              <PrivateRoute>
+              <Appointment />
+            </PrivateRoute>}
+          />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="/*" element={<NotFound />} />
