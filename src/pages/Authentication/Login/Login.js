@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
 import loginImg from '../../../images/login.png'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { portalUser, portalUserSignin, loading, authError, setAuthError, setLoading } = useAuth()
+    const { portalUser, portalUserSignin, loading, authError } = useAuth()
     const location = useLocation()
-    const navigate = useNavigate()
-    const redirect_uri = location.state?.from || "/"
 
     const handleOnChange = e => {
         const emailText = e.target.name
@@ -25,14 +23,7 @@ const Login = () => {
 
         // sign in user with firebase
         portalUserSignin(loginData.email, loginData.password, location)
-            .then((userCredential) => {
-                navigate(redirect_uri);
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                setAuthError(errorMessage);
-            })
-            .finally(() => setLoading(false));
+
         alert('Login Successfully')
         e.preventDefault();
     }

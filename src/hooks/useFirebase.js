@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import firebaseInitialize from '../pages/Authentication/Firebase/firebase.init';
 import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 firebaseInitialize();
 
@@ -8,6 +9,8 @@ const useFirebase = () => {
     const [portalUser, setPortalUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    let navigate = useNavigate()
+
 
     const auth = getAuth();
 
@@ -29,8 +32,17 @@ const useFirebase = () => {
     // sign in user
     const portalUserSignin = (email, password, location) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password)
-           
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                let destination = location?.state?.from || "/"
+                navigate(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+            })
+            .finally(() => setLoading(false));
     }
 
     // observe user
@@ -38,7 +50,6 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setPortalUser(user);
-                // ...
             } else {
                 setPortalUser({});
             }
@@ -66,10 +77,8 @@ const useFirebase = () => {
         portalUser,
         createPortalUser,
         portalUserSignin,
-        setAuthError,
         authError,
         portalUserLogout,
-        setLoading,
         loading
     }
 }
