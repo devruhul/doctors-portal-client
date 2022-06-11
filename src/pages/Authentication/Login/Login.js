@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Grid, Typography, TextField, Button } from '@mui/material';
+import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
 import loginImg from '../../../images/login.png'
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
+    const { portalUser, portalUserSignin, loading, authError } = useAuth()
 
     const handleOnChange = e => {
         const emailText = e.target.name
@@ -14,15 +16,13 @@ const Login = () => {
             ...loginData,
             [emailText]: passValue
         })
-
-        console.log(loginData)
     }
 
     const handleloginSubmit = e => {
-        e.preventDefault();
+        // sign in user with firebase
+        portalUserSignin(loginData.email, loginData.password)
         alert('Login Successfully')
-        e.target.reset();
-
+        e.preventDefault();
     }
     return (
         <Container>
@@ -31,7 +31,7 @@ const Login = () => {
                     <Typography sx={{ mt: 10 }} variant="h4" gutterBottom>
                         Login
                     </Typography>
-                    <form onSubmit={handleloginSubmit}>
+                    {!loading && <form onSubmit={handleloginSubmit}>
                         <TextField
                             sx={{ width: '1', mt: 3 }}
                             onChange={handleOnChange}
@@ -64,7 +64,11 @@ const Login = () => {
                                 New User? Register
                             </Button>
                         </NavLink>
-                    </form>
+                        {loading && <CircularProgress color="success" />
+                        }
+                        {portalUser?.email && <Alert severity="success"> Login Successfully </Alert>}
+                        {authError && <Alert severity="error"> {authError}</Alert>}
+                    </form>}
                 </Grid>
                 <Grid item xs={12} md={6} >
                     <img style={{ width: '100%' }} src={loginImg} alt="login" />

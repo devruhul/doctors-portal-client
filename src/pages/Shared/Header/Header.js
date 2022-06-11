@@ -10,7 +10,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
 
-    const customer = useAuth();
+    const { portalUser, portalUserLogout } = useAuth();
 
     return (
         // Here is the navigation bar which is fixed at the top of the page and share the same style between all components
@@ -55,8 +55,8 @@ const Header = () => {
                         </Button>
                     </Link>
                     {
-                        customer?.email ?
-                            <Button sx={{ color: 'white' }}>Logout
+                        portalUser?.email ?
+                            <Button onClick={portalUserLogout} sx={{ color: 'white' }}>Logout
                             </Button>
                             :
 

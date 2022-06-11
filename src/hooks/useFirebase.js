@@ -5,47 +5,37 @@ import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, s
 firebaseInitialize();
 
 const useFirebase = () => {
-    const [customer, setCustomer] = useState({});
+    const [portalUser, setPortalUser] = useState({});
     const [loading, setLoading] = useState(true);
+    const [authError, setAuthError] = useState('');
 
     const auth = getAuth();
 
     // create user with email and password
-    const createUser = (email, password) => {
+    const createPortalUser = (email, password) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
+                setAuthError('');
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
-
-                console.log(errorCode, errorMessage);
-                // ..
+                setAuthError(errorMessage);
             })
             .finally(() => setLoading(false));
 
     }
 
     // sign in user
-    const signIn = (email, password) => {
+    const portalUserSignin = (email, password) => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
+                setAuthError('');
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
-
-                console.log(errorCode, errorMessage);
+                setAuthError(errorMessage);
             })
             .finally(() => setLoading(false));
     }
@@ -54,37 +44,37 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setCustomer(user);
+                setPortalUser(user);
                 // ...
             } else {
-                setCustomer({});
+                setPortalUser({});
             }
             setLoading(false)
         });
 
         return () => unsubscribed
 
-    }, []);
+    }, [auth]);
 
     // log out user
-    const logOut = () => {
+    const portalUserLogout = () => {
         signOut(auth)
             .then(() => {
-                // Sign-out successful.
-                console.log('logout ');
-                setCustomer({});
+                setPortalUser({});
             })
             .catch((error) => {
-                // An error happened.
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
             })
             .finally(() => setLoading(false));
     }
 
     return {
-        customer,
-        createUser,
-        signIn,
-        logOut,
+        portalUser,
+        createPortalUser,
+        portalUserSignin,
+        authError,
+        portalUserLogout,
         loading
     }
 }

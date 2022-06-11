@@ -17,8 +17,8 @@ import ContextProvider from './Context/ContextProvider/ContextProvider';
 function App() {
   return (
     <div className="App">
-      <Header />
       <ContextProvider>
+        <Header />
         {/* All routes */}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,8 +32,8 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </ContextProvider>
-      <Footer />
     </div>
   );
 }

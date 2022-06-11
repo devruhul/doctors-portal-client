@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Container, Grid, Typography, TextField, Button, CircularProgress } from '@mui/material';
+import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
 import loginImg from '../../../images/login.png'
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
-    const [loginData, setLoginData] = useState({})
+    const [createUserData, setCreateUserData] = useState({})
 
-    const { createUser, loading } = useAuth();
+    const { portalUser, createPortalUser, loading, authError } = useAuth();
 
     const handleOnChange = e => {
         // store the value of email and password field
         const emailText = e.target.name
         const passValue = e.target.value
 
-        setLoginData({
-            ...loginData,
+        setCreateUserData({
+            ...createUserData,
             [emailText]: passValue
         })
 
@@ -24,10 +24,10 @@ const Register = () => {
     const handleloginSubmit = e => {
 
         // create user with firebase
-        createUser(loginData.email, loginData.password)
+        createPortalUser(createUserData.email, createUserData.password)
 
         // match password
-        if (loginData.password !== loginData.matchPassword) {
+        if (createUserData.password !== createUserData.matchPassword) {
             alert('Password do not match')
             return
         }
@@ -86,9 +86,11 @@ const Register = () => {
                                 Already have an account? Login
                             </Button>
                         </NavLink>
+                        {loading && <CircularProgress color="success" />
+                        }
+                        {portalUser?.email && <Alert severity="success"> User Created Successfully</Alert>}
+                        {authError && <Alert severity="error"> {authError}</Alert>}
                     </form>}
-                    {loading && <CircularProgress color="success" />
-                    }
                 </Grid>
                 <Grid item xs={12} md={6} >
                     <img style={{ width: '100%' }} src={loginImg} alt="login" />
