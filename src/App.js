@@ -32,8 +32,8 @@ function App() {
             path="appointment"
             element={
               <PrivateRoute>
-              <Appointment />
-            </PrivateRoute>}
+                <Appointment />
+              </PrivateRoute>}
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

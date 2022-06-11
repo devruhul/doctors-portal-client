@@ -11,7 +11,6 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState('');
     let navigate = useNavigate()
 
-
     const auth = getAuth();
 
     // create user with email and password

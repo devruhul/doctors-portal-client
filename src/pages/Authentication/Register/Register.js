@@ -18,11 +18,9 @@ const Register = () => {
             ...createUserData,
             [emailText]: passValue
         })
-
     }
 
     const handleloginSubmit = e => {
-
         // create user with firebase
         createPortalUser(createUserData.email, createUserData.password)
 

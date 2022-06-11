@@ -6,9 +6,10 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { portalUser, portalUserSignin, loading, authError } = useAuth()
-    const location = useLocation()
+    const { portalUser, portalUserSignin, loading, authError, setAuthError} = useAuth()
 
+    const location = useLocation()
+    // handle login text and password field
     const handleOnChange = e => {
         const emailText = e.target.name
         const passValue = e.target.value
@@ -18,14 +19,20 @@ const Login = () => {
             [emailText]: passValue
         })
     }
-
+    // handle login submit
     const handleloginSubmit = e => {
-
         // sign in user with firebase
         portalUserSignin(loginData.email, loginData.password, location)
+       
+        e.preventDefault()
+        e.target.reset()
+    }
 
-        alert('Login Successfully')
-        e.preventDefault();
+    // handle alert message when user login failed alert shows 30secs
+    const handleAlertMsg = () => {
+        authError && setTimeout(() => {
+            setAuthError('')
+        }, 3000)
     }
     return (
         <Container>
@@ -70,7 +77,8 @@ const Login = () => {
                         {loading && <CircularProgress color="success" />
                         }
                         {portalUser?.email && <Alert severity="success"> Login Successfully </Alert>}
-                        {authError && <Alert severity="error"> {authError}</Alert>}
+                        <Typography onClick={handleAlertMsg} variant='caption'> {authError && <Alert severity="error"> {authError}</Alert>} </Typography>
+
                     </form>}
                 </Grid>
                 <Grid item xs={12} md={6} >
