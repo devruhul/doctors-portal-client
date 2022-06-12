@@ -23,7 +23,7 @@ const Register = () => {
 
     const handleloginSubmit = e => {
         // create user with firebase
-        createPortalUser(createUserData.email, createUserData.password, location)
+        createPortalUser(createUserData.email, createUserData.password, createUserData.name, location)
 
         // match password
         if (createUserData.password !== createUserData.matchPassword) {

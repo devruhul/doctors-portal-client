@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Button, TextField, Typography } from '@mui/material';
+import useAuth from '../../../../hooks/useAuth';
 
 // modal style
 const style = {
@@ -19,6 +20,8 @@ const style = {
 
 const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) => {
     const { name, time } = booking // destructure the booking object and get booking info
+
+    const { portalUser } = useAuth()
 
     // Handle the booking form submit
     const handleBookingForm = e => {
@@ -38,7 +41,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography variant="h6" gutterBottom sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
+                    <Typography variant="h6"  sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
                     {/* Booking modal form */}
                     <form onSubmit={handleBookingForm}>
                         <TextField
@@ -54,7 +57,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             sx={{ width: '90%', m: 2 }}
                             label="Name"
                             id="outlined-size-small"
-                            placeholder="Your Name"
+                            defaultValue={portalUser.displayName}
                             size="small"
                         />
                         <TextField
@@ -62,7 +65,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             sx={{ width: '90%', m: 2 }}
                             label="Email"
                             id="outlined-size-small"
-                            placeholder="Your Email"
+                            defaultValue={portalUser.email}
                             size="small"
                         />
                         <TextField
