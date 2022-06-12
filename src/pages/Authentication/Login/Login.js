@@ -43,7 +43,7 @@ const Login = () => {
                     {!loading && <form onSubmit={handleloginSubmit}>
                         <TextField
                             sx={{ width: '1', mt: 3 }}
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             required
                             variant="standard"
                             name="email"
@@ -55,7 +55,7 @@ const Login = () => {
                         />
                         <TextField
                             sx={{ width: '1', mt: 3 }}
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             required
                             variant="standard"
                             name="password"

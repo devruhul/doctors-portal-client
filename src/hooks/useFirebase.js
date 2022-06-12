@@ -17,10 +17,11 @@ const useFirebase = () => {
 
 
     // create user with email and password
-    const createPortalUser = (email, password) => {
+    const createPortalUser = (email, password, location) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                navigate('/')
                 setAuthError('');
             })
             .catch((error) => {
@@ -54,13 +55,13 @@ const useFirebase = () => {
             .then((result) => {
                 let destination = location?.state?.from || "/"
                 navigate(destination);
-             const user = result.user;
-             setPortalUser(user);
-        }).catch((error) => {
-            const errorMessage = error.message;
-            setAuthError(errorMessage);
-        })
-        .finally(() => setLoading(false));
+                const user = result.user;
+                setPortalUser(user);
+            }).catch((error) => {
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+            })
+            .finally(() => setLoading(false));
     }
 
     // observe user

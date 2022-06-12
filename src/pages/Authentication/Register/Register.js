@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
 import loginImg from '../../../images/login.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [createUserData, setCreateUserData] = useState({})
-
     const { portalUser, createPortalUser, loading, authError } = useAuth();
 
-    const handleOnChange = e => {
+    const location = useLocation()
+
+    const handleOnBlur = e => {
         // store the value of email and password field
         const emailText = e.target.name
         const passValue = e.target.value
@@ -22,7 +23,7 @@ const Register = () => {
 
     const handleloginSubmit = e => {
         // create user with firebase
-        createPortalUser(createUserData.email, createUserData.password)
+        createPortalUser(createUserData.email, createUserData.password, location)
 
         // match password
         if (createUserData.password !== createUserData.matchPassword) {
@@ -47,7 +48,16 @@ const Register = () => {
                         <TextField
                             required
                             sx={{ width: '1', mt: 3 }}
-                            onChange={handleOnChange}
+                            onBlur={handleOnBlur}
+                            variant="standard"
+                            name="name"
+                            label='Your Name'
+                            placeholder="Karim Benjama"
+                        />
+                        <TextField
+                            required
+                            sx={{ width: '1', mt: 3 }}
+                            onBlur={handleOnBlur}
                             variant="standard"
                             name="email"
                             label='Your Email'
@@ -59,7 +69,7 @@ const Register = () => {
                         <TextField
                             required
                             sx={{ width: '1', mt: 3 }}
-                            onChange={handleOnChange}
+                            onBlur={handleOnBlur}
                             variant="standard"
                             name="password"
                             label="Password"
@@ -69,7 +79,7 @@ const Register = () => {
                         <TextField
                             required
                             sx={{ width: '1', mt: 3 }}
-                            onChange={handleOnChange}
+                            onBlur={handleOnBlur}
                             variant="standard"
                             name="matchPassword"
                             label="Retype Password"
