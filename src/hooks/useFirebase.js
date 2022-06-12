@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebaseInitialize from '../pages/Authentication/Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 firebaseInitialize();
@@ -9,9 +9,12 @@ const useFirebase = () => {
     const [portalUser, setPortalUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+
     let navigate = useNavigate()
 
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+
 
     // create user with email and password
     const createPortalUser = (email, password) => {
@@ -42,6 +45,22 @@ const useFirebase = () => {
                 setAuthError(errorMessage);
             })
             .finally(() => setLoading(false));
+    }
+
+    // google sign in
+    const signinWithGoogle = (location) => {
+        setLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                let destination = location?.state?.from || "/"
+                navigate(destination);
+             const user = result.user;
+             setPortalUser(user);
+        }).catch((error) => {
+            const errorMessage = error.message;
+            setAuthError(errorMessage);
+        })
+        .finally(() => setLoading(false));
     }
 
     // observe user
@@ -76,6 +95,7 @@ const useFirebase = () => {
         portalUser,
         createPortalUser,
         portalUserSignin,
+        signinWithGoogle,
         authError,
         portalUserLogout,
         loading

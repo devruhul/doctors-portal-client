@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { portalUser, portalUserSignin, loading, authError, setAuthError} = useAuth()
+    const { portalUser, portalUserSignin, loading, authError, signinWithGoogle } = useAuth()
 
     const location = useLocation()
     // handle login text and password field
@@ -23,22 +23,21 @@ const Login = () => {
     const handleloginSubmit = e => {
         // sign in user with firebase
         portalUserSignin(loginData.email, loginData.password, location)
-       
+
         e.preventDefault()
         e.target.reset()
     }
 
-    // handle alert message when user login failed alert shows 30secs
-    const handleAlertMsg = () => {
-        authError && setTimeout(() => {
-            setAuthError('')
-        }, 3000)
+    // handle google sign in
+    const handleGoogleSignin = () => {
+        signinWithGoogle(location)
     }
+
     return (
         <Container>
             <Grid sx={{ p: 5 }} container spacing={24}>
                 <Grid item xs={12} md={6} >
-                    <Typography sx={{ mt: 10 }} variant="h4" gutterBottom>
+                    <Typography sx={{ mt: 4 }} variant="h4" gutterBottom>
                         Login
                     </Typography>
                     {!loading && <form onSubmit={handleloginSubmit}>
@@ -74,12 +73,15 @@ const Login = () => {
                                 New User? Register
                             </Button>
                         </NavLink>
-                        {loading && <CircularProgress color="success" />
-                        }
-                        {portalUser?.email && <Alert severity="success"> Login Successfully </Alert>}
-                        <Typography onClick={handleAlertMsg} variant='caption'> {authError && <Alert severity="error"> {authError}</Alert>} </Typography>
-
                     </form>}
+                    {loading && <CircularProgress color="success" />
+                    }
+                    {portalUser?.email && <Alert severity="success"> Login Successfully </Alert>}
+                    <hr />
+                    <Button onClick={handleGoogleSignin} variant="contained" gutterBottom>
+                        Google Signin
+                    </Button>
+                    {authError && <Alert severity="error"> {authError}</Alert>}
                 </Grid>
                 <Grid item xs={12} md={6} >
                     <img style={{ width: '100%' }} src={loginImg} alt="login" />
