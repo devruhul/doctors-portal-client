@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Button, TextField, Typography } from '@mui/material';
@@ -18,18 +18,54 @@ const style = {
     textAlign: 'center'
 };
 
-const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) => {
+const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, setBookingSuccess }) => {
     const { name, time } = booking // destructure the booking object and get booking info
-
     const { portalUser } = useAuth()
+    const initialBookingInfo = {
+        patientName: portalUser.name,
+        email: portalUser.email,
+        phone: ''
+    }
+    const [bookingInfo, setBookingInfo] = useState(initialBookingInfo)
 
+    const handleOnBlur = (e) => {
+        const field = e.target.name
+        const value = e.target.value
+
+        const newBookingInfo = { ...bookingInfo }
+        newBookingInfo[field] = value
+        setBookingInfo(newBookingInfo)
+    }
     // Handle the booking form submit
     const handleBookingForm = e => {
+
+        const appointment = {
+            ...bookingInfo,
+            time,
+            serviceName: name,
+            date: date.toLocaleDateString()
+        }
+        // send apppointment data server side
+        fetch('http://localhost:5000/appointments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(appointment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    console.log('Appointment booked successfully')
+                    setBookingSuccess(true)
+                    handleBookingModalClose()
+                }
+            })
         // Stop reloading the page
-        e.preventDefault();
-        alert(`Booking ${name} on ${date.toDateString()} at ${time}`);
-        handleBookingModalClose();
+        e.preventDefault()
     }
+
+
 
     return (
         <Box>
@@ -41,7 +77,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography variant="h6"  sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
+                    <Typography variant="h6" sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
                     {/* Booking modal form */}
                     <form onSubmit={handleBookingForm}>
                         <TextField
@@ -56,6 +92,8 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             required
                             sx={{ width: '90%', m: 2 }}
                             label="Name"
+                            name='patientName'
+                            onBlur={handleOnBlur}
                             id="outlined-size-small"
                             defaultValue={portalUser.displayName}
                             size="small"
@@ -64,6 +102,8 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             required
                             sx={{ width: '90%', m: 2 }}
                             label="Email"
+                            name='email'
+                            onBlur={handleOnBlur}
                             id="outlined-size-small"
                             defaultValue={portalUser.email}
                             size="small"
@@ -72,6 +112,8 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date }) =
                             required
                             sx={{ width: '90%', m: 2 }}
                             label="Phone"
+                            name='phone'
+                            onBlur={handleOnBlur}
                             id="outlined-size-small"
                             placeholder="Your Phone"
                             size="small"

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Grid, Container, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Grid, Container, Typography, Alert } from '@mui/material';
 import Booking from '../Appointment/Booking/Booking';
 
 // Fake data for bookings
@@ -43,10 +43,12 @@ const bookings = [
 ]
 
 const AppointsDate = ({ date }) => {
+    const [bookingSuccess, setBookingSuccess] = useState(false);
     return (
         // Here is the AppointsDate section
         <Container>
             <Typography variant="h4" gutterBottom sx={{ color: 'info.main', mb: 2 }}>Available Appoinments On {date.toDateString()}</Typography>
+            {bookingSuccess && <Alert severity="success">Appointment Booked Successfully</Alert>}
             <Grid container spacing={2}>
                 {/* Map bookings to create paper and share the information */}
                 {
@@ -54,6 +56,7 @@ const AppointsDate = ({ date }) => {
                         key={booking.id}
                         booking={booking}
                         date={date}
+                        setBookingSuccess={setBookingSuccess}
                     />)
                 }
             </Grid>

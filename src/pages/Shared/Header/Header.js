@@ -56,10 +56,15 @@ const Header = () => {
                     </Link>
                     {
                         portalUser?.email ?
-                            <Button onClick={portalUserLogout} sx={{ color: 'white' }}>Logout
-                            </Button>
+                            <Box>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                                    <Button sx={{ color: 'white' }}>Dashboard
+                                    </Button>
+                                </Link>
+                                <Button onClick={portalUserLogout} sx={{ color: 'white' }}>Logout
+                                </Button>
+                            </Box>
                             :
-
                             <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
                                 <Button sx={{ color: 'white' }}>Login
                                 </Button>

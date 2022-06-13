@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import BookingForm from '../BookingForm/BookingForm';
 
-const Booking = ({ booking, date }) => {
+const Booking = ({ booking, date, setBookingSuccess }) => {
     // State lift for share the date between components
     const { name, time, space } = booking;
     const [bookingModal, setBookingModal] = useState(false);
@@ -27,6 +27,7 @@ const Booking = ({ booking, date }) => {
                 booking={booking}
                 bookingModal={bookingModal}
                 handleBookingModalClose={handleBookingModalClose}
+                setBookingSuccess={setBookingSuccess}
             >
             </BookingForm>
         </>
