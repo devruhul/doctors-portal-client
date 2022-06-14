@@ -28,7 +28,7 @@ const Blog = ({ name, description, img, title, time }) => {
                     </Grid>
                 </Grid>
                 <CardContent sx={{ textAlign: 'left' }}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography variant="h5" component="div">
                         {title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

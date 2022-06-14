@@ -12,10 +12,10 @@ const ContactInfo = () => {
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <CardContent>
-                                <Typography gutterBottom variant="h6" sx={{ color: 'white' }}>
+                                <Typography variant="h6" sx={{ color: 'white' }}>
                                     Opening Hours
                                 </Typography>
-                                <Typography gutterBottom variant="body2">
+                                <Typography variant="body2">
                                     7.00 - 8.00
                                 </Typography>
                             </CardContent>
@@ -29,10 +29,10 @@ const ContactInfo = () => {
                         </Grid>
                         <Grid item xs={12} md={8} >
                             <CardContent>
-                                <Typography gutterBottom variant="h6" sx={{ color: 'white' }}>
+                                <Typography variant="h6" sx={{ color: 'white' }}>
                                     Visit Our Location
                                 </Typography>
-                                <Typography gutterBottom variant="body2">
+                                <Typography variant="body2">
                                     Birmingham, UK
                                 </Typography>
                             </CardContent>
@@ -46,10 +46,10 @@ const ContactInfo = () => {
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <CardContent>
-                                <Typography gutterBottom variant="h6" sx={{ color: 'white' }}>
+                                <Typography variant="h6" sx={{ color: 'white' }}>
                                     Contact Us Now
                                 </Typography>
-                                <Typography gutterBottom variant="body2">
+                                <Typography variant="body2">
                                     +00 123 456789
                                 </Typography>
                             </CardContent>

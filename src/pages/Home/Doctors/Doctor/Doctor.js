@@ -14,7 +14,7 @@ const Doctor = (props) => {
                     <Typography variant="h6" sx={{ color: 'black', fontWeight: 700 }}>
                         {name}
                     </Typography>
-                    <Typography gutterBottom variant="caption" sx={{ color: 'black'}}>
+                    <Typography variant="caption" sx={{ color: 'black' }}>
                         <i style={{ color: '#5CE7ED' }} className="fa-solid fa-phone fa-1x"></i>
                         {phone}
                     </Typography>

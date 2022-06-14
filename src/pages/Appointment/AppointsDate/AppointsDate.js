@@ -47,7 +47,7 @@ const AppointsDate = ({ date }) => {
     return (
         // Here is the AppointsDate section
         <Container>
-            <Typography variant="h4" gutterBottom sx={{ color: 'info.main', mb: 2 }}>Available Appoinments On {date.toDateString()}</Typography>
+            <Typography variant="h4" sx={{ color: 'info.main', mb: 2 }}>Available Appoinments On {date.toDateString()}</Typography>
             {bookingSuccess && <Alert severity="success">Appointment Booked Successfully</Alert>}
             <Grid container spacing={2}>
                 {/* Map bookings to create paper and share the information */}

@@ -31,7 +31,7 @@ const Doctors = () => {
     return (
         <Grid container spacing={2} sx={{ mb: 10 }}>
             <Container>
-                <Typography sx={{ color: '#5CE7ED', m: 10, letterSpacing: '10px', fontWeight: 'bold', }} gutterBottom variant="h6" component="div"> OUR DOCTORS</Typography>
+                <Typography sx={{ color: '#5CE7ED', m: 10, letterSpacing: '10px', fontWeight: 'bold', }} variant="h6" component="div"> OUR DOCTORS</Typography>
 
                 <Grid container spacing={2}>
                     {

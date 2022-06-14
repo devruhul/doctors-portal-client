@@ -7,7 +7,7 @@ const Review = ({ name, city, description, image }) => {
             <Grid container justifyContent="space-between" alignItems="center" spacing={1} sx={{ mt: 5 }}>
                 <Card sx={{ p: 2, mb: 10, maxWidth: 345 }}>
                     <CardContent>
-                        <Typography sx={{ textAlign: 'justify' }} gutterBottom variant="body2" color="text.secondary">
+                        <Typography sx={{ textAlign: 'justify' }} variant="body2" color="text.secondary">
                             {description}
                         </Typography>
                     </CardContent>

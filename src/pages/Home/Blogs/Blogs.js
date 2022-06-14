@@ -40,8 +40,8 @@ const Blogs = () => {
         // Here is the Services section
         <Box sx={{ mb: 10 }}>
             <Container>
-                <Typography sx={{ color: '#5CE7ED', mt: 10, letterSpacing: '10px', fontWeight: 'bold', }} gutterBottom variant="h6" component="div"> OUR BLOG</Typography>
-                <Typography sx={{ fontWeight: 'bold', mb: 10 }} gutterBottom variant="h4" component="div">From Our Blog News</Typography>
+                <Typography sx={{ color: '#5CE7ED', mt: 10, letterSpacing: '10px', fontWeight: 'bold', }} variant="h6" component="div"> OUR BLOG</Typography>
+                <Typography sx={{ fontWeight: 'bold', mb: 10 }} variant="h4" component="div">From Our Blog News</Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {/* Map blogs to create more blog */}
                     {

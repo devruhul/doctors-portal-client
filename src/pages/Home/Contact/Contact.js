@@ -21,8 +21,8 @@ const handleContactForm = (e) => {
 const Contact = () => {
     return (
         <Container style={bannerbg} sx={{ m: 10, p: 3 }}>
-            <Typography sx={{ color: '#5CE7ED', mt: 5, letterSpacing: '10px', fontWeight: 'bold', }} gutterBottom variant="h6"> CONTACT US</Typography>
-            <Typography sx={{ fontWeight: 'bold', mb: 5, color: 'white' }} gutterBottom variant="h4">Always Connect With Us</Typography>
+            <Typography sx={{ color: '#5CE7ED', mt: 5, letterSpacing: '10px', fontWeight: 'bold', }} variant="h6"> CONTACT US</Typography>
+            <Typography sx={{ fontWeight: 'bold', mb: 5, color: 'white' }} variant="h4">Always Connect With Us</Typography>
 
             <Box sx={{ textAlign: 'center', p: 5 }}>
                 <form onSubmit={handleContactForm}>

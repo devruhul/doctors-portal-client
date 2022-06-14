@@ -15,9 +15,9 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
         <>
             <Grid item xs={12} sm={6} md={4} >
                 <Paper elevation={3} sx={{ py: 5 }}>
-                    <Typography variant="h6" gutterBottom sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
-                    <Typography variant="body1" gutterBottom>{time}</Typography>
-                    <Typography variant="caption" display="block" gutterBottom>{space} SPACES AVAILABLE</Typography>
+                    <Typography variant="h6" sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
+                    <Typography variant="body1" >{time}</Typography>
+                    <Typography variant="caption" display="block" >{space} SPACES AVAILABLE</Typography>
                     <Button onClick={handleBookingModalOpen} variant="contained" color="primary">Book Appointment</Button>
                 </Paper>
             </Grid>

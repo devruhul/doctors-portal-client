@@ -39,7 +39,7 @@ const Footer = () => {
                 <Grid container direction="column"
                     justifyContent="space-between"
                     alignItems="center" item xs={12} md={3} sm={6}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" >
                         Services
                     </Typography>
                     <Typography variant="caption" sx={{ color: 'black' }}>
@@ -61,7 +61,7 @@ const Footer = () => {
                 <Grid container direction="column"
                     justifyContent="space-between"
                     alignItems="center" item xs={12} md={3} sm={6}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" >
                         Oral Health
                     </Typography>
                     <Typography variant="caption" sx={{ color: 'black' }}>
@@ -83,10 +83,10 @@ const Footer = () => {
                 <Grid container direction="column"
                     justifyContent="space-between"
                     alignItems="center" item xs={12} md={3} sm={6}>
-                    <Typography sx={{ color: '#5CE7ED' }} variant="h6" gutterBottom>
+                    <Typography sx={{ color: '#5CE7ED' }} variant="h6" >
                         Our Address
                     </Typography>
-                    <Typography variant="caption" gutterBottom>
+                    <Typography variant="caption" >
                         Birmingham - UK, B15 2JX
                     </Typography>
                     {/* facebook google twitter icon */}
@@ -95,7 +95,7 @@ const Footer = () => {
                         <i className="fa-brands fa-google fa-2x"></i>
                         <i className="fa-brands fa-twitter fa-2x"></i>
                     </Box>
-                    <Typography variant="body2" gutterBottom>
+                    <Typography variant="body2" >
                         Call Now
                     </Typography>
                     <Button variant='contained'>

@@ -36,7 +36,7 @@ const Reviews = () => {
                 <Grid container item xs={12} md={6} sx={{ textAlign: 'left', }} >
                     <Grid justifyContent="center" alignItems="center" >
                         <Grid item>
-                            <Typography variant="h4" gutterBottom sx={{ color: '#5CE7ED', }}>
+                            <Typography variant="h4" sx={{ color: '#5CE7ED', }}>
                                 Testimonials
                             </Typography>
                         </Grid>

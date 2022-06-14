@@ -37,7 +37,7 @@ const Login = () => {
         <Container>
             <Grid sx={{ p: 5 }} container spacing={24}>
                 <Grid item xs={12} md={6} >
-                    <Typography sx={{ mt: 4 }} variant="h4" gutterBottom>
+                    <Typography sx={{ mt: 4 }} variant="h4" >
                         Login
                     </Typography>
                     {!loading && <form onSubmit={handleloginSubmit}>
@@ -78,7 +78,7 @@ const Login = () => {
                     }
                     {portalUser?.email && <Alert severity="success"> Login Successfully </Alert>}
                     <hr />
-                    <Button onClick={handleGoogleSignin} variant="contained" gutterBottom>
+                    <Button onClick={handleGoogleSignin} variant="contained" >
                         Google Signin
                     </Button>
                     {authError && <Alert severity="error"> {authError}</Alert>}

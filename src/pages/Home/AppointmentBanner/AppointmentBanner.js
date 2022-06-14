@@ -28,13 +28,13 @@ const AppointmentBanner = () => {
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: "flex-start", alignItems: 'flex-start', textAlign: 'left', }} >
                     <Box sx={{ py: 3, mx: 3 }}>
-                        <Typography sx={{ color: '#5CE7ED', mb: 3 }} variant="h4" gutterBottom>
+                        <Typography sx={{ color: '#5CE7ED', mb: 3 }} variant="h4" >
                             Appointment
                         </Typography>
-                        <Typography sx={{ color: 'white' }} variant="h4" gutterBottom>
+                        <Typography sx={{ color: 'white' }} variant="h4" >
                             Make an Appointment Today
                         </Typography>
-                        <Typography sx={{ color: 'white', fontSize: '15px', my: 4 }} variant="h6" gutterBottom>
+                        <Typography sx={{ color: 'white', fontSize: '15px', my: 4 }} variant="h6" >
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, pariatur perferendis doloremque omnis reprehenderit doloribus quas eos quasi. Quasi magni nobis vitae quibusdam illum nostrum?
                         </Typography>
                          <Link style={{ textDecoration: 'none' }} to="/appointment">
