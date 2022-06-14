@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 const AppointmentsDetails = ({ date }) => {
     const { portalUser } = useAuth();
@@ -19,18 +20,24 @@ const AppointmentsDetails = ({ date }) => {
         fetch(`http://localhost:5000/appointments?email=${portalUser.email}&date=${date}`)
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [date]);
+    }, [portalUser.email, date]);
     return (
         <Box>
-            <Typography variant='h5'>{portalUser?.displayName}</Typography>
-            <Typography variant='h5'>Appointments {appointments.length}
-            </Typography>
+            <Grid container spacing={3}>
+                <Grid item xs={12} sm={6} md={4}>
+                    <Typography align="left" variant='h5'>Appointments
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6} md={8}>
+                    <Typography align="right" variant='h5'>{date.toLocaleDateString()}</Typography>
+                </Grid>
+            </Grid>
             <TableContainer component={Paper}>
                 <Table aria-label="appointment data table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell align="center">Time</TableCell>
+                            <TableCell align="center">Schedule</TableCell>
                             <TableCell align="center">Service</TableCell>
                             <TableCell align="right">Action</TableCell>
                         </TableRow>

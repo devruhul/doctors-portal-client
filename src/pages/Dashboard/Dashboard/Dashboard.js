@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
@@ -14,16 +15,15 @@ import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Grid from '@mui/material/Grid';
-import AppointsCalendar from '../../Shared/AppointsCalendar/AppointsCalendar';
-import AppointmentsDetails from '../AppointmentsDetails/AppointmentsDetails';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { Link, Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,9 +32,27 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      <Link style={{ textDecoration: 'none' }} to='/'>
+        <Button variant='contained'>
+          Home
+        </Button>
+      </Link>
+      <br /> <br />
+      <Link style={{ textDecoration: 'none' }} to='/dashboard/dashboardHome'>
+        <Button variant='contained'>
+          Dashboard
+        </Button>
+      </Link>
+      <br /> <br />
+      <Link style={{ textDecoration: 'none' }} to='/dashboard/makeAdmin'>
+        <Button variant='contained'>
+          MakeAdmin
+        </Button>
+      </Link>
+      <br />
       <Divider />
       <List>
-        {['Appointment', 'Patients', 'Prescriptions', 'Setting'].map((text, index) => (
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -53,17 +71,28 @@ function Dashboard(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
-        >
-          <MenuIcon />
-        </IconButton>
-      </Toolbar>
+      <AppBar
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -101,17 +130,7 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
-            <AppointsCalendar
-              date={date}
-              setDate={setDate}
-            />
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <AppointmentsDetails date={date} />
-          </Grid>
-        </Grid>
+        <Outlet />
       </Box>
     </Box>
   );

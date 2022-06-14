@@ -15,6 +15,8 @@ import Register from './pages/Authentication/Register/Register';
 import ContextProvider from './Context/ContextProvider/ContextProvider';
 import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
+import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -33,12 +35,14 @@ function App() {
             <PrivateRoute>
               <Appointment />
             </PrivateRoute>
-            }/>
-          <Route path="dashboard" element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-            }/>
+          } />
+          <Route path="dashboard" element={<PrivateRoute><Dashboard />
+          </PrivateRoute>
+          }>
+
+            <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
+            <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
+          </Route>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="/*" element={<NotFound />} />
