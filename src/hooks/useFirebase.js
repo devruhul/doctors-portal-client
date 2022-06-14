@@ -17,7 +17,7 @@ const useFirebase = () => {
 
 
     // create user with email and password
-    const createPortalUser = (email, password, name, location) => {
+    const createPortalUser = (email, password, name) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -25,6 +25,8 @@ const useFirebase = () => {
                 setPortalUser(newUser);
                 navigate('/')
                 setAuthError('')
+                // save user
+                savePortalUser(email, name, 'POST')
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -63,6 +65,7 @@ const useFirebase = () => {
                 let destination = location?.state?.from || "/"
                 navigate(destination);
                 const user = result.user;
+                savePortalUser(user.email, user.displayName, 'PUT')
                 setPortalUser(user);
             }).catch((error) => {
                 const errorMessage = error.message;
@@ -97,6 +100,22 @@ const useFirebase = () => {
                 setAuthError(errorMessage);
             })
             .finally(() => setLoading(false));
+    }
+
+    const savePortalUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert('User saved successfully')
+            })
     }
 
     return {
