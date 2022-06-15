@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebaseInitialize from '../pages/Authentication/Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 firebaseInitialize();
@@ -80,6 +80,10 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setPortalUser(user);
+                getIdToken(auth)
+                    .then((idToken) => {
+                        console.log(idToken)
+                    })
             } else {
                 setPortalUser({});
             }
@@ -95,7 +99,7 @@ const useFirebase = () => {
         fetch(`http://localhost:5000/users/${portalUser.email}`)
             .then(res => res.json())
             .then(data => {
-              setAdmin(data.admin)
+                setAdmin(data.admin)
             })
     }, [portalUser.email])
 
