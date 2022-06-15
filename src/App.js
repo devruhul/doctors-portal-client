@@ -17,6 +17,7 @@ import PrivateRoute from './pages/Authentication/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
 import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddDoctor from './pages/Dashboard/AddDoctor/AddDoctor';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
 
             <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
             <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
+            <Route path="/dashboard/addDoctor" element={<AddDoctor />} />
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

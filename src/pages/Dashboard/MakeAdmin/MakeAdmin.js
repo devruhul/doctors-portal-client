@@ -19,11 +19,12 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount < 0) {
+                if (data.modifiedCount) {
                     alert('admin added succesfully')
                     e.target.reset();
                 } else {
                     alert('admin existed')
+                    e.target.reset();
                 }
             })
     }

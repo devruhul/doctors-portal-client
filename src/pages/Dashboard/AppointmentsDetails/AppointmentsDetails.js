@@ -25,7 +25,7 @@ const AppointmentsDetails = ({ date }) => {
         <Box>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={4}>
-                    <Typography align="left" variant='h5'>Appointments
+                    <Typography align="left" variant='h5'>Appointments for {portalUser.displayName}
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={8}>

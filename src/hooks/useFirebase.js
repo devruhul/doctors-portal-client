@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [portalUser, setPortalUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false)
 
     let navigate = useNavigate()
 
@@ -89,6 +90,17 @@ const useFirebase = () => {
 
     }, [auth]);
 
+    // check if user is admin or not
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${portalUser.email}`)
+            .then(res => res.json())
+            .then(data => {
+              setAdmin(data.admin)
+            })
+    }, [portalUser.email])
+
+
+
     // log out user
     const portalUserLogout = () => {
         signOut(auth)
@@ -120,6 +132,7 @@ const useFirebase = () => {
 
     return {
         portalUser,
+        admin,
         createPortalUser,
         portalUserSignin,
         signinWithGoogle,
