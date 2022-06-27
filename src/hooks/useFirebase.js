@@ -10,6 +10,7 @@ const useFirebase = () => {
     const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false)
+    const [authToken, setAuthToken] = useState('');
 
     let navigate = useNavigate()
 
@@ -80,9 +81,9 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setPortalUser(user);
-                getIdToken(auth)
+                getIdToken(user)
                     .then((idToken) => {
-                        console.log(idToken)
+                        setAuthToken(idToken)
                     })
             } else {
                 setPortalUser({});
@@ -137,6 +138,7 @@ const useFirebase = () => {
     return {
         portalUser,
         admin,
+        authToken,
         createPortalUser,
         portalUserSignin,
         signinWithGoogle,
