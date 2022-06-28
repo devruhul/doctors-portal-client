@@ -46,7 +46,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
             date: date.toLocaleDateString()
         }
         // send apppointment data server side
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://doctors-portal-server-2001.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    console.log('Appointment booked successfully')
+                    alert('Booking Successfully')
                     setBookingSuccess(true)
                     handleBookingModalClose()
                 }
