@@ -16,7 +16,7 @@ const Footer = () => {
     return (
         //    create a footer with material ui
         <Box style={footerBg} sx={{ mt: 10, mb: 10, p: 10 }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} spacing={5}>
+            <Grid container rowSpacing={4} columnSpacing={{ xs: 3, sm: 3, md: 3 }} spacing={5}>
                 <Grid container direction="column"
                     justifyContent="space-between"
                     alignItems="center" item sx={{ mt: 4 }} xs={12} md={3} sm={6}>
