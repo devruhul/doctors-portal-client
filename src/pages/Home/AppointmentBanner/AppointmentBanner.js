@@ -11,7 +11,10 @@ const appointmentBg = {
     backgroundImage: `url(${appointment})`,
     backgroundColor: 'rgb(0, 41, 102, 0.7)',
     backgroundBlendMode: 'darken, luminosity',
-    marginTop: 140
+    marginTop: 140,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
 }
 
 const AppointmentBanner = () => {
@@ -21,7 +24,7 @@ const AppointmentBanner = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <img
-                        style={{ width: '70%', height: '135%', marginTop: '-125px' }}
+                        style={{ width: '70%', height: 'auto', marginTop: '-125px' }}
                         src={doctor}
                         alt=""
                     />
