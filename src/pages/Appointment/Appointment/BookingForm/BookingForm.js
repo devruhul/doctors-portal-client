@@ -22,8 +22,8 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
     const { name, time } = booking // destructure the booking object and get booking info
     const { portalUser } = useAuth()
     const initialBookingInfo = {
-        patientName: portalUser.name,
-        email: portalUser.email,
+        patientName: portalUser?.displayName,
+        email: portalUser?.email,
         phone: ''
     }
     const [bookingInfo, setBookingInfo] = useState(initialBookingInfo)
@@ -32,9 +32,10 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
         const field = e.target.name
         const value = e.target.value
 
-        const newBookingInfo = { ...bookingInfo }
-        newBookingInfo[field] = value
-        setBookingInfo(newBookingInfo)
+        setBookingInfo({
+            ...bookingInfo,
+            [field]: value
+        })
     }
     // Handle the booking form submit
     const handleBookingForm = e => {
@@ -65,8 +66,6 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
         e.preventDefault()
     }
 
-
-
     return (
         <Box>
             {/* Here is the booking modal */}
@@ -93,9 +92,9 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
                             sx={{ width: '90%', m: 2 }}
                             label="Name"
                             name='patientName'
-                            onBlur={handleOnBlur}
+                            autoFocus={handleOnBlur}
                             id="outlined-size-small"
-                            defaultValue={portalUser.displayName}
+                            defaultValue={portalUser?.displayName}
                             size="small"
                         />
                         <TextField
@@ -105,7 +104,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
                             name='email'
                             onBlur={handleOnBlur}
                             id="outlined-size-small"
-                            defaultValue={portalUser.email}
+                            defaultValue={portalUser?.email}
                             size="small"
                         />
                         <TextField
@@ -124,7 +123,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
                             sx={{ width: '90%', m: 2 }}
                             label="Date"
                             id="outlined-size-small"
-                            defaultValue={date.toDateString()}
+                            defaultValue={date.toLocaleDateString()}
                             size="small"
                         />
                         <Button type="submit" variant="contained" color="primary">Send</Button>

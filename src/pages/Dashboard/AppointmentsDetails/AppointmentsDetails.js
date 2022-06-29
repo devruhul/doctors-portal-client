@@ -21,11 +21,12 @@ const AppointmentsDetails = ({ date }) => {
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [portalUser.email, date]);
+
     return (
         <Box>
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={4}>
-                    <Typography align="left" variant='h5'>Appointments for {portalUser.displayName}
+                    <Typography align="left" variant='h5'>Appointments for {portalUser?.displayName}
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={8}>
@@ -49,7 +50,8 @@ const AppointmentsDetails = ({ date }) => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {appointment.patientName}
+                                    {appointment?.patientName}
+                                    
                                 </TableCell>
                                 <TableCell align="center">{appointment.time}</TableCell>
                                 <TableCell align="center">{appointment.serviceName}</TableCell>
