@@ -131,7 +131,7 @@ const useFirebase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                alert('User saved successfully')
+                console.log('User saved successfully')
             })
     }
 
