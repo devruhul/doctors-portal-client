@@ -9,7 +9,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 const AppointmentsDetails = ({ date }) => {
@@ -40,7 +39,6 @@ const AppointmentsDetails = ({ date }) => {
                             <TableCell>Name</TableCell>
                             <TableCell align="center">Schedule</TableCell>
                             <TableCell align="center">Service</TableCell>
-                            <TableCell align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -51,15 +49,9 @@ const AppointmentsDetails = ({ date }) => {
                             >
                                 <TableCell component="th" scope="row">
                                     {appointment?.patientName}
-                                    
                                 </TableCell>
                                 <TableCell align="center">{appointment.time}</TableCell>
                                 <TableCell align="center">{appointment.serviceName}</TableCell>
-                                <TableCell align="right">
-                                    <Button variant='contained'>
-                                        <Typography variant='button'>Cancel</Typography>
-                                    </Button>
-                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
