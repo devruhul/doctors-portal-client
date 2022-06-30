@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 const NotFound = () => {
     return (
-        <div>
-            <h2>Nothing found please go back to home</h2>
-        </div>
+        <Box>
+            <Typography variant='h2'>Nothing found please go back to home</Typography>
+        </Box>
     );
 };
 

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import AppointsDate from '../AppointsDate/AppointsDate';
 import AppointHeader from './AppointHeader/AppointHeader';

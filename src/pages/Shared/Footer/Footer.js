@@ -1,8 +1,5 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import {Box, Grid, Button,Typography} from '@mui/material';
 import footerbg from '../../../images/footer-bg.png'
 
 const footerBg = {

@@ -1,8 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Grid, Paper, Box, Typography } from '@mui/material';
 
 const Doctor = (props) => {
     const { name, phone, img } = props.doctor

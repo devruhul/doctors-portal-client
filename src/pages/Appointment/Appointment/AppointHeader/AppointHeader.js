@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid } from '@mui/material';
-import chair from '../../../../images/chair.png';
 import AppointsCalendar from '../../../Shared/AppointsCalendar/AppointsCalendar';
+import chair from '../../../../images/chair.png';
 
 const AppointHeader = ({ date, setDate }) => {
     return (

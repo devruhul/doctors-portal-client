@@ -1,7 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import { Container, Grid, Typography } from '@mui/material';
 import doctor from '../../../images/doctor-small.png';
 import Doctor from './Doctor/Doctor';
 

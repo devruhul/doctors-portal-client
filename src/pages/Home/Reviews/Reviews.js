@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Typography, Container } from '@mui/material';
+import Review from './Review/Review';
 import firstImg from '../../../images/people-1.png';
 import secondImg from '../../../images/people-2.png';
 import thirdImg from '../../../images/people-3.png';
-import Review from './Review/Review';
 
 const reviews = [
     {

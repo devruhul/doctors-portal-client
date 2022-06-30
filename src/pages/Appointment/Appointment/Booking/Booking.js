@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { Grid } from '@mui/material';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Grid, Paper, Typography, Button } from '@mui/material';
 import BookingForm from '../BookingForm/BookingForm';
 
 const Booking = ({ booking, date, setBookingSuccess }) => {

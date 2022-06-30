@@ -1,11 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-
+import { Grid, Card, CardContent, Typography, Button, CardActions } from '@mui/material';
 
 const Blog = ({ name, description, img, title, time }) => {
     return (

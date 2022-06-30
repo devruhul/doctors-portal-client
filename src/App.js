@@ -41,7 +41,6 @@ function App() {
           <Route path="dashboard" element={<PrivateRoute><Dashboard />
           </PrivateRoute>
           }>
-
             <Route path="/dashboard/dashboardHome" element={<DashboardHome />} />
             <Route path="/dashboard/makeAdmin" element={
               <AdminRoute>

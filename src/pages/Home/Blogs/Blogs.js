@@ -1,14 +1,9 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import { Container, Box, Grid, Typography } from '@mui/material';
 import Blog from './Blog/Blog';
 import fluoride from '../../../images/people-1.png';
 import cavity from '../../../images/people-2.png';
 import whitening from '../../../images/people-3.png';
-
-
 
 // Fake data for services
 const blogs = [

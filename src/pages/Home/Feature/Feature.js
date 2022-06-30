@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Box, Button, Typography, Container } from '@mui/material';
-import featureImg from '../../../images/treatment.png'
 import { Link } from 'react-router-dom';
+import featureImg from '../../../images/treatment.png'
 
 const Feature = () => {
     return (

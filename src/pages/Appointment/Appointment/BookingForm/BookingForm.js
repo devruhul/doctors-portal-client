@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import { Button, TextField, Typography } from '@mui/material';
+import { Box, Button, Modal, TextField, Typography } from '@mui/material';
 import useAuth from '../../../../hooks/useAuth';
 
 // modal style

@@ -1,8 +1,5 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import { Container, Box, Grid, Typography} from '@mui/material';
 import Service from '../Service/Service';
 import fluoride from '../../../images/fluoride.png';
 import cavity from '../../../images/cavity.png';

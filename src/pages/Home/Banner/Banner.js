@@ -1,11 +1,9 @@
 import React from 'react';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import bannerImg from '../../../images/chair.png';
-import bannerBg from '../../../images/bg.png';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, Container,Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ContactInfo from '../ContactInfo/ContactInfo';
+import bannerImg from '../../../images/chair.png';
+import bannerBg from '../../../images/bg.png';
 
 // Some styles for the banner
 const bannerbg = {
