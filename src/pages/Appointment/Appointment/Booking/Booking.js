@@ -4,7 +4,7 @@ import BookingForm from '../BookingForm/BookingForm';
 
 const Booking = ({ booking, date, setBookingSuccess }) => {
     // State lift for share the date between components
-    const { name, time, space } = booking;
+    const { name, time, space, price } = booking;
     const [bookingModal, setBookingModal] = useState(false);
     const handleBookingModalOpen = () => setBookingModal(true);
     const handleBookingModalClose = () => setBookingModal(false);
@@ -15,6 +15,7 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
                     <Typography variant="h6" sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
                     <Typography variant="body1" >{time}</Typography>
                     <Typography variant="caption" display="block" >{space} SPACES AVAILABLE</Typography>
+                    <Typography variant="caption" display="block" >Price {price} </Typography>
                     <Button onClick={handleBookingModalOpen} variant="contained" color="primary">Book Appointment</Button>
                 </Paper>
             </Grid>

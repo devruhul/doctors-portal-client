@@ -17,7 +17,7 @@ const style = {
 };
 
 const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, setBookingSuccess }) => {
-    const { name, time } = booking // destructure the booking object and get booking info
+    const { name, time, price } = booking // destructure the booking object and get booking info
     const { portalUser } = useAuth()
     const initialBookingInfo = {
         patientName: portalUser?.displayName,
@@ -41,6 +41,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
         const appointment = {
             ...bookingInfo,
             time,
+            price,
             serviceName: name,
             date: date.toLocaleDateString()
         }

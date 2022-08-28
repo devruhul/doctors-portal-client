@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const AppointmentsDetails = ({ date }) => {
     const { portalUser } = useAuth();
@@ -30,6 +31,7 @@ const AppointmentsDetails = ({ date }) => {
                             <TableCell>Name</TableCell>
                             <TableCell align="center">Schedule</TableCell>
                             <TableCell align="center">Service</TableCell>
+                            <TableCell align="center">Pay</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -43,6 +45,10 @@ const AppointmentsDetails = ({ date }) => {
                                 </TableCell>
                                 <TableCell align="center">{appointment.time}</TableCell>
                                 <TableCell align="center">{appointment.serviceName}</TableCell>
+                                <TableCell align="center">{appointment.payment ? 'Paid' :
+                                    <Link to={`/dashboard/payment/${appointment._id}`}> <button>Pay</button> </Link>
+                                }
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

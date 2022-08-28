@@ -25,7 +25,7 @@ function Dashboard(props) {
         </Button>
       </Link>
       <br /> <br />
-      <Link style={{ textDecoration: 'none' }} to='/dashboard/dashboardHome'>
+      <Link style={{ textDecoration: 'none' }} to='/dashboard'>
         <Button variant='contained'>
           Dashboard
         </Button>
