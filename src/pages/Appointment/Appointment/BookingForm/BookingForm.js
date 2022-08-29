@@ -46,7 +46,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
             date: date.toLocaleDateString()
         }
         // send apppointment data server side
-        fetch('https://doctors-portal-server-2001.herokuapp.com/appointments', {
+        fetch('https://doctors-portal-backend.vercel.app/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

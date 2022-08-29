@@ -10,7 +10,7 @@ const PaymentDetails = () => {
     const { paymentId } = useParams();
     const [appointment, setAppointment] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments/${paymentId}`)
+        fetch(`https://doctors-portal-backend.vercel.app/appointments/${paymentId}`)
             .then(res => res.json())
             .then(data => setAppointment(data));
     }, [paymentId]);

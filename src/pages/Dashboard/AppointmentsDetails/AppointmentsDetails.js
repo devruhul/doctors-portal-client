@@ -8,7 +8,7 @@ const AppointmentsDetails = ({ date }) => {
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        fetch(`https://doctors-portal-server-2001.herokuapp.com/appointments?email=${portalUser.email}&date=${date.toLocaleDateString()}`)
+        fetch(`https://doctors-portal-backend.vercel.app/appointments?email=${portalUser.email}&date=${date.toLocaleDateString()}`)
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [portalUser.email, date]);

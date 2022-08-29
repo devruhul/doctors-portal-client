@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = (e) => {
         e.preventDefault();
         const user = { email };
-        fetch('https://doctors-portal-server-2001.herokuapp.com/users/makeAdmin', {
+        fetch('https://doctors-portal-backend.vercel.app/users/makeAdmin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${authToken}`,

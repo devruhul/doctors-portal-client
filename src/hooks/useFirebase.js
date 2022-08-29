@@ -97,7 +97,7 @@ const useFirebase = () => {
 
     // check if user is admin or not
     useEffect(() => {
-        fetch(`https://doctors-portal-server-2001.herokuapp.com/users/${portalUser.email}`)
+        fetch(`https://doctors-portal-backend.vercel.app/users/${portalUser.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)
@@ -121,7 +121,7 @@ const useFirebase = () => {
 
     const savePortalUser = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('https://doctors-portal-server-2001.herokuapp.com/users', {
+        fetch('https://doctors-portal-backend.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

@@ -13,7 +13,7 @@ const AddDoctor = () => {
         formData.append('doctorName', doctorName);
         formData.append('email', email);
         formData.append('doctorImage', doctorImage);
-        fetch('http://localhost:5000/doctors', {
+        fetch('https://doctors-portal-backend.vercel.app/doctors', {
             method: 'POST',
             body: formData
         })
