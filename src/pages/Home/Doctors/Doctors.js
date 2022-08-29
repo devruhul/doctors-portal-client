@@ -8,9 +8,7 @@ const Doctors = () => {
     useEffect(() => {
         fetch('https://doctors-portal-backend.vercel.app/doctors')
             .then(res => res.json())
-            .then(data => {
-                setDoctors(data);
-            })
+            .then(data => setDoctors(data))
     }, [])
 
     return (
