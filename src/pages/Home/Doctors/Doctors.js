@@ -1,31 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
-import doctor from '../../../images/doctor-small.png';
 import Doctor from './Doctor/Doctor';
 
-const doctors = [
-    {
-        id: 1,
-        name: 'Dr. John',
-        phone: ' +8801785582069',
-        img: doctor
-    },
-    {
-        id: 2,
-        name: 'Dr. David',
-        phone: ' +8801764896603',
-        img: doctor
-    },
-    {
-        id: 3,
-        name: 'Dr. Michael',
-        phone: ' +8801765465456',
-        img: doctor
-    }
-]
-
-
 const Doctors = () => {
+    const [doctors, setDoctors] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/doctors')
+            .then(res => res.json())
+            .then(data => {
+                setDoctors(data);
+            })
+    }, [])
+
     return (
         <Grid container spacing={2} sx={{ mb: 10 }}>
             <Container>
@@ -36,7 +23,7 @@ const Doctors = () => {
 
                         doctors.map(doctor =>
                             <Doctor
-                                key={doctor.id}
+                                key={doctor._id}
                                 doctor={doctor}
                             ></Doctor>
                         )}
