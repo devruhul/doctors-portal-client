@@ -8,8 +8,6 @@ const AddDoctor = () => {
 
     const handleAddDoctor = (e) => {
         e.preventDefault();
-        console.log(doctorName, email)
-
 
         const formData = new FormData();
         formData.append('doctorName', doctorName);
@@ -21,7 +19,6 @@ const AddDoctor = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     alert('Doctor Added Successfully')
                 }

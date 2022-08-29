@@ -91,7 +91,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
                             sx={{ width: '90%', m: 2 }}
                             label="Name"
                             name='patientName'
-                            autoFocus={handleOnBlur}
+                            onChange={handleOnBlur}
                             id="outlined-size-small"
                             defaultValue={portalUser?.displayName}
                             size="small"
@@ -114,8 +114,7 @@ const BookingForm = ({ bookingModal, handleBookingModalClose, booking, date, set
                             onBlur={handleOnBlur}
                             id="outlined-size-small"
                             placeholder="Your Phone"
-                            size="small"
-                            type="number"
+                            type="text"
                         />
                         <TextField
                             disabled

@@ -15,7 +15,7 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
                     <Typography variant="h6" sx={{ color: 'info.main', fontWeight: 600 }}>{name}</Typography>
                     <Typography variant="body1" >{time}</Typography>
                     <Typography variant="caption" display="block" >{space} SPACES AVAILABLE</Typography>
-                    <Typography variant="caption" display="block" >Price {price} </Typography>
+                    <Typography variant="caption" display="block" >Price ${price} </Typography>
                     <Button onClick={handleBookingModalOpen} variant="contained" color="primary">Book Appointment</Button>
                 </Paper>
             </Grid>

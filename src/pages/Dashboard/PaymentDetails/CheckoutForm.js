@@ -48,23 +48,21 @@ export default function CheckoutForm({ appointment }) {
         }
         else {
             setError('');
-            console.log(paymentMethod);
         }
 
         // payment intent
-        const { paymentIntent, error: intentError } =
-            await stripe.confirmCardPayment(
-                clientSecret,
-                {
-                    payment_method: {
-                        card: card,
-                        billing_details: {
-                            name: patientName,
-                            email: portalUser.email
-                        },
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: patientName,
+                        email: portalUser.email
                     },
                 },
-            );
+            },
+        );
 
         if (intentError) {
             setError(intentError.message);
@@ -73,7 +71,6 @@ export default function CheckoutForm({ appointment }) {
         else {
             setError('');
             setSuccess('Your payment processed successfully.')
-            console.log(paymentIntent);
             setProcessing(false);
             // save to database
             const payment = {
@@ -91,7 +88,11 @@ export default function CheckoutForm({ appointment }) {
                 body: JSON.stringify(payment)
             })
                 .then(res => res.json())
-                .then(data => console.log(data));
+                .then(data => {
+                    if (data.modifiedCount) {
+                        alert('Payment Successfully')
+                    }
+                })
         }
 
     }

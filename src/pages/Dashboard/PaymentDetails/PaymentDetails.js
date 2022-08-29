@@ -17,7 +17,7 @@ const PaymentDetails = () => {
     return (
         <div>
             <h2>Please Pay for: {appointment.patientName} for {appointment.serviceName}</h2>
-            <h4>Pay:{appointment.price}</h4>
+            <h4>Pay: ${appointment.price}</h4>
             {appointment?.price && <Elements stripe={stripePromise}>
                 <CheckoutForm
                     appointment={appointment}
