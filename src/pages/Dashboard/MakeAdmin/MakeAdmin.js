@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = (e) => {
         e.preventDefault();
         const user = { email };
-        fetch('https://doctors-portal-backend.vercel.app/users/makeAdmin', {
+        fetch('https://doctors-portal-server.onrender.com/users/makeAdmin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${authToken}`,

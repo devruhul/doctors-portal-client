@@ -15,7 +15,7 @@ export default function CheckoutForm({ appointment }) {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://doctors-portal-backend.vercel.app/create-payment-intent', {
+        fetch('https://doctors-portal-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ export default function CheckoutForm({ appointment }) {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-            const url = `https://doctors-portal-backend.vercel.app/appointments/${_id}`;
+            const url = `https://doctors-portal-server.onrender.com/appointments/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
