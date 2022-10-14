@@ -21,11 +21,26 @@ import AddDoctor from './pages/Dashboard/AddDoctor/AddDoctor';
 import AdminRoute from './pages/Authentication/AdminRoute/AdminRoute';
 import Payment from './pages/Dashboard/Payment/Payment';
 import PaymentDetails from './pages/Dashboard/PaymentDetails/PaymentDetails';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  // loading spinner
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div className="App">
-      <ContextProvider>
+      {/* added loading spinner */}
+      {loading ? (
+        <div className="loader-container">
+          <div className="spinner"></div>
+        </div>
+      ) : (<ContextProvider>
         <Header />
         {/* All routes */}
         <Routes>
@@ -64,7 +79,7 @@ function App() {
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </ContextProvider>
+      </ContextProvider>)}
     </div>
   );
 }
